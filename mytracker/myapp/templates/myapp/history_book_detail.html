@@ -1,0 +1,14 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+        
+<b>Book Name :</b> {{history_object.name}}<br>
+<b>Category :</b> {{history_object.category}}<br>
+<b>Changed by :</b> {{user}}<br><br>
+
+<a href="/revert/book-{{history_object.pk}}" type="button" class="btn btn-outline-dark">Revert</a>
+
+
+
+{% endblock %}

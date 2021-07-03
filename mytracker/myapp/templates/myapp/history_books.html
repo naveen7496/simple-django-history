@@ -1,0 +1,11 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+{% for object in all_objects %}
+    <a href="{% url 'book-history-details' object.object.history_id %}">{{object.object.name}}</a><br>
+    {% for change in object.history_changes %}
+        {{ change.field }} : {{ change.new }}<br>
+    {% endfor %}<br><br>
+{% endfor %}
+{% endblock %}

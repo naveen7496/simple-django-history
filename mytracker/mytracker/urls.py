@@ -1,21 +1,21 @@
-"""mytracker URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from myapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('books/', views.BookListView.as_view(), name='books'),
+    path('books/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
+    path('book_history/<int:pk>', views.BookHistory.as_view(), name='book-history'),
+    path('book_history_details/<int:pk>', views.HistoryDetailView.as_view(), name='book-history-details'),
+    path('revert/<slug>', views.revertObject, name='revert'),
+    path('users/', views.UserList.as_view(), name='users'),
+    path('history_by_user/<int:pk>', views.listHistoryByUser, name='userhistorylist'),
+    path('authors/', views.AuthorListView.as_view(), name='authors'),
+    path('authors/<int:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
+    path('author_history/<int:pk>', views.AuthorHistory.as_view(), name='author-history'),
+    path('author_history_details/<int:pk>', views.AuthorHistoryDetailView.as_view(), name='author-history-details'),
+
 ]

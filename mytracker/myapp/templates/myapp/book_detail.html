@@ -1,0 +1,12 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+    
+    <b>Book Name :</b> {{ book.name }}<br>
+    <b>Book Category :</b> {{ book.category }}<br>
+    <b>Author :</b> {{ book.author }}<br>
+    <a href="{% url 'book-history' book.pk %}" type="button" class="btn btn-outline-dark">History</a>
+
+
+{% endblock %}

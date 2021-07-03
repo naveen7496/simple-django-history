@@ -1,0 +1,16 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+    <b>Book History</b><br>
+    {% for history in book_history_list %}
+            {{ history }}<br>
+    {% endfor %}<br>
+
+    <b>Author History</b><br>
+    {% for history in author_history_list %}
+            {{ history }}<br>
+    {% endfor %}
+
+
+{% endblock %}

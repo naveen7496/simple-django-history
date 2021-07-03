@@ -1,0 +1,15 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+        
+<b>Author Name :</b> {{history_object.name}}<br>
+<b>Subject :</b> {{history_object.subject}}<br>
+<b>State :</b> {{history_object.state}}<br>
+<b>Changed by :</b> {{user}}<br><br>
+<a href="/revert/author-{{history_object.pk}}" type="button" class="btn btn-outline-dark">Revert</a>
+
+
+
+
+{% endblock %}

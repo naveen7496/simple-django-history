@@ -1,0 +1,12 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+    
+    <b>Author Name :</b> {{ author.name }}<br>
+    <b>Subject :</b> {{ author.subject }}<br>
+    <b>State :</b> {{ author.state }}<br>
+    <a href="{% url 'author-history' author.pk %}" type="button" class="btn btn-outline-dark">History</a>
+
+
+{% endblock %}
